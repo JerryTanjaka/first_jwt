@@ -1,9 +1,10 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { users } from "../models/user.model.js";
-console.log("users au démarrage :", users);
-
-const SECRET_KEY = process.env.JWT_SECRET || "defaultsecret";
+import dotenv from "dotenv";
+dotenv.config(); 
+const SECRET_KEY = process.env.JWT_SECRET ;
+console.log("SECRET_KEY :", SECRET_KEY);
 
 export const signup = async (req, res) => {
   const { email, password } = req.body;
